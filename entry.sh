@@ -21,5 +21,3 @@ apt-get install -y google-chrome-stable
 apt-get install -y unattended-upgrades
 cp /RV/inst/APSinstall/10periodic /etc/apt/apt.conf.d/
 cp /RV/inst/APSinstall/50unattended-upgrades /etc/apt/apt.conf.d/
-apt-get install nodejs
-
