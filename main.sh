@@ -5,6 +5,7 @@ MACADDR=$(ifconfig eth0 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}')
 #could also be cat /sys/class/net/eth0/address
 echo $MACADDR > /RV/inst/mac.txt
 cd /home/bak/
+pwd > /RV/inst/pwd.log
 wget http://download.beyondtrust.com/PBISO/8.2/linux.deb.x64/pbis-open-8.2.0.2969.linux.x86_64.deb.sh
 chmod +x $(ls | grep pbis)
 cp /RV/inst/APSinstall/domainLink.sh .
