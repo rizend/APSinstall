@@ -10,7 +10,6 @@ chmod +x $(ls | grep pbis)
 cp /RV/inst/APSinstall/domainLink.sh .
 chmod +x ./domainLink.sh
 #remember to change “sufficient” to “[success=ok default=ignore]” in /etc/pam.d/common-session
-apt-get install -y gedit libglade2-0
 printf "[SeatDefaults]\nallow-guest=false\n" > /usr/share/lightdm/lightdm.conf.d/50-no-guest.conf
 
 sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
