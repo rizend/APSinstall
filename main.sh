@@ -1,15 +1,16 @@
 #!/bin/bash
 apt-get install -y openssh-server
+apt-get install -y libglade2.0
+#lib glade for domain join gui
 cd /RV/inst/
 MACADDR=$(ifconfig eth0 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}')
 #could also be cat /sys/class/net/eth0/address
 echo $MACADDR > /RV/inst/mac.txt
-cd /home/bak/
-pwd > /RV/inst/pwd.log
-wget http://download.beyondtrust.com/PBISO/8.2/linux.deb.x64/pbis-open-8.2.0.2969.linux.x86_64.deb.sh
+cd /RV/inst/APSinstall/
+wget http://download.beyondtrust.com/PBISO/8.2/linux.deb.i386/pbis-open-8.2.0.2969.linux.x86.deb.sh
 chmod +x $(ls | grep pbis)
-cp /RV/inst/APSinstall/domainLink.sh .
-chmod +x ./domainLink.sh
+chmod +x /RV/inst/APSlinux/domainLink.sh
+cp /RV/inst/APSinstall/domainLink.sh /home/bak
 #remember to change “sufficient” to “[success=ok default=ignore]” in /etc/pam.d/common-session
 printf "[SeatDefaults]\nallow-guest=false\n" > /usr/share/lightdm/lightdm.conf.d/50-no-guest.conf
 
