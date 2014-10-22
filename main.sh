@@ -10,8 +10,11 @@ cd /RV/inst/APSinstall/
 wget http://download.beyondtrust.com/PBISO/8.2/linux.deb.i386/pbis-open-8.2.0.2969.linux.x86.deb.sh
 chmod +x $(ls | grep pbis)
 chmod +x /RV/inst/APSlinux/domainLink.sh
-cp /RV/inst/APSinstall/domainLink.sh /home/bak
-#remember to change “sufficient” to “[success=ok default=ignore]” in /etc/pam.d/common-session
+mkdir -p /home/bak/Desktop/
+cp -r /etc/skel/ /home/bak
+cp /RV/inst/APSinstall/domainLink.sh /home/bak/Desktop/
+chown -R bak:bak /home/bak
+
 printf "[SeatDefaults]\nallow-guest=false\n" > /usr/share/lightdm/lightdm.conf.d/50-no-guest.conf
 
 sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
